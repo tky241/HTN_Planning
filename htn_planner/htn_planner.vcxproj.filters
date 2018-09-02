@@ -39,14 +39,26 @@
     <ClInclude Include="src\Planner\HtnPlanner.h">
       <Filter>Source\Planner</Filter>
     </ClInclude>
-    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveGoTask.h">
-      <Filter>Source\HtnObject\PrimitiveTask</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveHaveAnInterviewTask.h">
-      <Filter>Source\HtnObject\PrimitiveTask</Filter>
-    </ClInclude>
     <ClInclude Include="src\Planner\AstarStateNode.h">
       <Filter>Source\Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveBuyMaterialsTask.h">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveBuyRetortTask.h">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveCutMaterialsTask.h">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitivePutRouxTask.h">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveSimmerTask.h">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveStirFryTask.h">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,14 +80,26 @@
     <ClCompile Include="src\Planner\HtnPlanner.cpp">
       <Filter>Source\Planner</Filter>
     </ClCompile>
-    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveGoTask.cpp">
-      <Filter>Source\HtnObject\PrimitiveTask</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveHaveAnInterviewTask.cpp">
-      <Filter>Source\HtnObject\PrimitiveTask</Filter>
-    </ClCompile>
     <ClCompile Include="src\Planner\AstarStateNode.cpp">
       <Filter>Source\Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveBuyMaterialsTask.cpp">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveBuyRetortTask.cpp">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveCutMaterialsTask.cpp">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitivePutrouxTask.cpp">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveSimmerTask.cpp">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveStirFryTask.cpp">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

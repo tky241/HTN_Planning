@@ -146,8 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Htnobject\Goal.h" />
-    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveGoTask.h" />
-    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveHaveAnInterviewTask.h" />
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveBuyMaterialsTask.h" />
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveBuyRetortTask.h" />
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveCutMaterialsTask.h" />
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitivePutRouxTask.h" />
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveSimmerTask.h" />
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveStirFryTask.h" />
     <ClInclude Include="src\Htnobject\State.h" />
     <ClInclude Include="src\Htnobject\TaskBase.h" />
     <ClInclude Include="src\Planner\AstarStateNode.h" />
@@ -158,8 +162,12 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Htnobject\Goal.cpp" />
-    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveGoTask.cpp" />
-    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveHaveAnInterviewTask.cpp" />
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveBuyMaterialsTask.cpp" />
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveBuyRetortTask.cpp" />
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveCutMaterialsTask.cpp" />
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitivePutrouxTask.cpp" />
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveSimmerTask.cpp" />
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveStirFryTask.cpp" />
     <ClCompile Include="src\Htnobject\State.cpp" />
     <ClCompile Include="src\Htnobject\TaskBase.cpp" />
     <ClCompile Include="src\Planner\AstarStateNode.cpp" />

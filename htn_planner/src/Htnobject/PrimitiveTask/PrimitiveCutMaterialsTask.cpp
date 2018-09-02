@@ -1,50 +1,50 @@
 #include"stdafx.h"
-#include "PrimitiveGoTask.h"
+#include "PrimitiveCutMaterialsTask.h"
 
 using namespace htn;
 
 //==================================================
 // コンストラクタ
 //==================================================
-PrimitiveGoTask::PrimitiveGoTask()
+PrimitiveCutMaterialsTask::PrimitiveCutMaterialsTask()
 {
 }
 
 //==================================================
 // デストラクタ
 //==================================================
-PrimitiveGoTask::~PrimitiveGoTask()
+PrimitiveCutMaterialsTask::~PrimitiveCutMaterialsTask()
 {
 }
 
 //==================================================
 // 開始
 //==================================================
-void PrimitiveGoTask::start()
+void PrimitiveCutMaterialsTask::start()
 {
-	printf("GoStart\n");
+	printf("材料を準備します\n");
 }
 
 //==================================================
 // 更新
 //==================================================
-void PrimitiveGoTask::update()
+void PrimitiveCutMaterialsTask::update()
 {
-	printf("-----------------\nGOOOOOO!!!\n-----------------\n");
+	printf("材料を切る\n");
 }
 
 //==================================================
 // 終了
 //==================================================
-void PrimitiveGoTask::end()
+void PrimitiveCutMaterialsTask::end()
 {
-	printf("GoEndt\n");
+	printf("材料を切り終わりました\n");
 }
 
 //==================================================
 // コスト取得
 //==================================================
-float PrimitiveGoTask::getCost()
+float PrimitiveCutMaterialsTask::getCost()
 {
 	return 1;
 }
@@ -52,7 +52,7 @@ float PrimitiveGoTask::getCost()
 //==================================================
 // プリミティブタスクか（falseは階層型タスク）
 //==================================================
-bool PrimitiveGoTask::isPrimitive()
+bool PrimitiveCutMaterialsTask::isPrimitive()
 {
 	return true;
 }
@@ -60,9 +60,9 @@ bool PrimitiveGoTask::isPrimitive()
 //==================================================
 // 前条件を満たしているか
 //==================================================
-bool PrimitiveGoTask::evaluatePreCondition(HtnState* state)
+bool PrimitiveCutMaterialsTask::evaluatePreCondition(HtnState* state)
 {
-	if (!state->getA())
+	if (state->haveBeef() && state->haveCarrot() && state->haveOnion() && state->havePtato() && !state->isCutMaterials())
 	{
 		return true;
 	}
@@ -72,16 +72,15 @@ bool PrimitiveGoTask::evaluatePreCondition(HtnState* state)
 //==================================================
 // ステータスを変更する
 //==================================================
-void PrimitiveGoTask::changeStatus(HtnState* state)
+void PrimitiveCutMaterialsTask::changeStatus(HtnState* state)
 {
-
-	state->setA(true);
+	state->setCutMaterials(true);
 }
 
 //==================================================
 // タスクが終了したか
 //==================================================
-bool PrimitiveGoTask::isFinish()
+bool PrimitiveCutMaterialsTask::isFinish()
 {
 	return true;
 }

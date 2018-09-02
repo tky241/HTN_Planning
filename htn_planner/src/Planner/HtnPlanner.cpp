@@ -1,7 +1,11 @@
 #include"stdafx.h"
 #include "HtnPlanner.h"
-#include "../Htnobject/PrimitiveTask/PrimitiveGoTask.h"
-#include "../Htnobject/PrimitiveTask/PrimitiveHaveAnInterviewTask.h"
+#include "../Htnobject/PrimitiveTask/PrimitiveBuyMaterialsTask.h"
+#include "../Htnobject/PrimitiveTask/PrimitiveBuyRetortTask.h"
+#include "../Htnobject/PrimitiveTask/PrimitiveCutMaterialsTask.h"
+#include "../Htnobject/PrimitiveTask/PrimitivePutRouxTask.h"
+#include "../Htnobject/PrimitiveTask/PrimitiveSimmerTask.h"
+#include "../Htnobject/PrimitiveTask/PrimitiveStirFryTask.h"
 #include "../Htnobject/TaskBase.h"
 #include "../Htnobject/State.h"
 #include "../Htnobject/Goal.h"
@@ -71,16 +75,23 @@ void HtnPlanner::setup()
 {
 	// TODO :TaskBase‚ğŒp³‚µ‚½ƒNƒ‰ƒX‚ğ©“®‚Å“o˜^‚·‚é
 
-	PrimitiveGoTask* task1 = new PrimitiveGoTask();
+	PrimitiveBuyMaterialsTask* task1 = new PrimitiveBuyMaterialsTask();
 	registerDomain(task1);
 
-	// ƒRƒXƒg‚Ìˆá‚¤2í—Ş‚Ìƒ^ƒXƒN‚ğ“o˜^‚µ‚ÄAƒRƒXƒg‚Ì¬‚³‚¢‚Ù‚¤‚ªg—p‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm‚©‚ß‚é
-	PrimitiveHaveAnInterViewTask* task2 = new PrimitiveHaveAnInterViewTask();
-	task2->setCost(1);
+	PrimitiveBuyRetortTask* task2 = new PrimitiveBuyRetortTask();
 	registerDomain(task2);
-	PrimitiveHaveAnInterViewTask* task3 = new PrimitiveHaveAnInterViewTask();
-	task3->setCost(100000);
+	
+	PrimitiveCutMaterialsTask* task3 = new PrimitiveCutMaterialsTask();
 	registerDomain(task3);
+
+	PrimitivePutRouxTask* task4 = new PrimitivePutRouxTask();
+	registerDomain(task4);
+
+	PrimitiveSimmerTask* task5 = new PrimitiveSimmerTask();
+	registerDomain(task5);
+
+	PrimitiveStirFryTask* task6 = new PrimitiveStirFryTask();
+	registerDomain(task6);
 }
 
 //==================================================
@@ -133,10 +144,16 @@ void HtnPlanner::plan(HtnState* state, Goal* goal)
 		}
 
 		minCostNode = pickMinCostNode();
-		if (goal->evaluate(minCostNode) == 0)
+
+		if (minCostNode != nullptr)
 		{
-			break;
+			if (goal->evaluate(minCostNode) == 0)
+			{
+				break;
+			}
 		}
+
+	
 	}
 
 
@@ -221,20 +238,20 @@ bool HtnPlanner::updateTask()
 
 	if (mIsCallTaskStart)
 	{
-		mTasks[mCurrentTaskNo]->start();
+		mTasks[mTaskCount - 1 - mCurrentTaskNo]->start();
 	}
 
 	// ŠK‘wŒ^ƒ^ƒXƒN
-	if (!mTasks[mCurrentTaskNo]->isPrimitive())
+	if (!mTasks[mTaskCount - 1 - mCurrentTaskNo]->isPrimitive())
 	{
 		// todo HTN
 	}
 
-	mTasks[mCurrentTaskNo]->update();
+	mTasks[mTaskCount - 1 - mCurrentTaskNo]->update();
 
-	if (mTasks[mCurrentTaskNo]->isFinish())
+	if (mTasks[mTaskCount - 1 - mCurrentTaskNo]->isFinish())
 	{
-		mTasks[mCurrentTaskNo]->end();
+		mTasks[mTaskCount - 1 - mCurrentTaskNo]->end();
 		if (!nextTask())
 		{
 			return false;

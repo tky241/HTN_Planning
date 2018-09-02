@@ -1,5 +1,5 @@
-#ifndef _HTN_PRIMITIVETASK_GOTASK_H_
-#define _HTN_PRIMITIVETASK_GOTASK_H_
+#ifndef _HTN_PRIMITIVETASK_PrimitiveStirFryTask_H_
+#define _HTN_PRIMITIVETASK_PrimitiveStirFryTask_H_
 
 #include "../../../stdafx.h"
 #include "../TaskBase.h"
@@ -7,14 +7,14 @@
 
 namespace htn
 {
-	class PrimitiveGoTask : public TaskBase
+	class PrimitiveStirFryTask : public TaskBase
 	{
 	public:
 		// コンストラクタ
-		PrimitiveGoTask();
+		PrimitiveStirFryTask();
 
 		// デストラクタ
-		virtual ~PrimitiveGoTask();
+		virtual ~PrimitiveStirFryTask();
 
 		// 開始処理
 		virtual void start();

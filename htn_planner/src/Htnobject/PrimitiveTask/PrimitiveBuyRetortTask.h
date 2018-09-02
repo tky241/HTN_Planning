@@ -1,5 +1,5 @@
-#ifndef _HTN_PRIMITIVETASK_INTERVIEWTASK_H_
-#define _HTN_PRIMITIVETASK_INTERVIEWTASK_H_
+#ifndef _HTN_PRIMITIVETASK_PrimitiveBuyRetortTask_H_
+#define _HTN_PRIMITIVETASK_PrimitiveBuyRetortTask_H_
 
 #include "../../../stdafx.h"
 #include "../TaskBase.h"
@@ -7,16 +7,16 @@
 
 namespace htn
 {
-	class PrimitiveHaveAnInterViewTask : public TaskBase
+	class PrimitiveBuyRetortTask : public TaskBase
 	{
 	public:
 		// コンストラクタ
-		PrimitiveHaveAnInterViewTask();
+		PrimitiveBuyRetortTask();
 
 		// デストラクタ
-		virtual ~PrimitiveHaveAnInterViewTask();
+		virtual ~PrimitiveBuyRetortTask();
 
-		// 開始
+		// 開始処理
 		virtual void start();
 
 		// 更新
@@ -37,16 +37,9 @@ namespace htn
 		// ステータスの変更
 		virtual void changeStatus(HtnState* state);
 
-		// タスクが終了したか
+		// タスクが終了しているか
 		virtual bool isFinish();
 
-		// コストの設定（外部からコストを操作して動作を確認する用）
-		inline void setCost(int cost)
-		{
-			mCost = cost;
-		}
-	private:
-		int mCost;
 	};
 }
 

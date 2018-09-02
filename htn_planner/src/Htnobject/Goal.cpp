@@ -24,25 +24,50 @@ int htn::Goal::evaluate(HtnState * state)
 {
 	int heuristic = 0;
 
-	if (!state->getA())
+	if (!state->havePtato())
 	{
 		heuristic++;
 	}
 
-	if (!state->getB())
+	if (!state->haveCarrot())
 	{
 		heuristic++;
 	}
 
-	if (state->getC())
+	if (!state->haveOnion())
 	{
 		heuristic++;
 	}
 
-	if (state->getD())
+	if (!state->haveBeef())
 	{
 		heuristic++;
 	}
+
+	if (!state->isCutMaterials())
+	{
+		heuristic++;
+	}
+
+	if (!state->isStirFry())
+	{
+		heuristic++;
+	}
+
+	if (!state->isBoil())
+	{
+		heuristic++;
+	}
+	if (!state->isPutRoux())
+	{
+		heuristic++;
+	}
+
+	if (state->isCurry())
+	{
+		return 0;
+	}
+
 
 	return heuristic;
 }

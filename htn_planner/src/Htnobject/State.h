@@ -20,59 +20,141 @@ namespace htn
 		// 条件が同じかどうか
 		bool isSame(HtnState* state);
 
-		// A条件取得
-		inline bool getA() const
+
+		// 人参を持っているか
+		inline bool haveCarrot() const
 		{
-			return mA;
+			return mHaveCarrot;
 		}
 
-		// A条件設定
-		inline void setA(bool flg)
+		// 人参設定
+		inline void setCarrot(bool flg)
 		{
-			mA = flg;
+			mHaveCarrot = flg;
 		}
 
-		// B条件取得
-		inline bool getB() const
+		// ジャガイモ持っているか
+		inline bool havePtato() const
 		{
-			return mB;
+			return mHavePtato;
 		}
 
-		// B条件設定
-		inline void setB(bool flg)
+		// ジャガイモ設定
+		inline void setHavePtato(bool flg)
 		{
-			mB = flg;
+			mHavePtato = flg;
 		}
 
-		// C条件取得
-		inline bool getC() const
+		// 玉ねぎ持っているか
+		inline bool haveOnion() const
 		{
-			return mC;
+			return mHaveOnion;
 		}
 
-		// C条件設定
-		inline void setC(bool flg)
+		// 玉ねぎ設定
+		inline void setHaveOnion(bool flg)
 		{
-			mC = flg;
+			mHaveOnion = flg;
 		}
 
-		// D条件取得
-		inline bool getD() const
+		// 牛肉持っているか
+		inline bool haveBeef() const
 		{
-			return mD;
+			return mHaveBeef;
 		}
 
-		// D条件設定
-		inline void setD(bool flg)
+		// 牛肉設定
+		inline void setHaveBeef(bool flg)
 		{
-			mD = flg;
+			mHaveBeef = flg;
+		}
+
+		// 材料が切られているか
+		inline bool isCutMaterials() const
+		{
+			return mIsCutMaterials;
+		}
+
+		// 材料が切られているか
+		inline void setCutMaterials(bool flg)
+		{
+			mIsCutMaterials = flg;
+		}
+
+		// 材料が炒められているか
+		inline bool isStirFry() const
+		{
+			return mIsStirFry;
+		}
+
+		// 材料が炒められているか
+		inline void setStirFry(bool flg)
+		{
+			mIsStirFry = flg;
+		}
+
+		// 材料が茹でられているか
+		inline bool isBoil() const
+		{
+			return mIsBoil;
+		}
+
+		// 材料が茹でられているか
+		inline void setsBoil(bool flg)
+		{
+			mIsBoil = flg;
+		}
+
+		// ルーが入っているか
+		inline bool isPutRoux() const
+		{
+			return mIsPutRoux;
+		}
+
+		// ルーが入っているか
+		inline void setPutRoux(bool flg)
+		{
+			mIsPutRoux = flg;
+		}
+
+		// 出来上がったカレーがあるか
+		inline bool isCurry() const
+		{
+			return mIsCurry;
+		}
+
+		// 出来上がったカレーがあるか
+		inline void setCurry(bool flg)
+		{
+			mIsCurry = flg;
+		}
+
+		// 所持金の取得
+		inline int getMoney() const
+		{
+			return mMoney;
+		}
+
+		// 所持金設定
+		inline void setMoney(int money)
+		{
+			mMoney = money;
 		}
 
 	private:
-		bool mA;	// 仮の条件
-		bool mB;	// 仮の条件
-		bool mC;	// 仮の条件
-		bool mD;	// 仮の条件
+		bool mHaveCarrot;
+		bool mHavePtato;
+		bool mHaveOnion;
+		bool mHaveBeef;
+
+		bool mIsCutMaterials;
+		bool mIsStirFry;
+		bool mIsBoil;
+		bool mIsPutRoux;
+
+		bool mIsCurry;
+
+		int mMoney;
 	};
 }
 

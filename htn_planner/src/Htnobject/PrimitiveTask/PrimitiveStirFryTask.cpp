@@ -1,60 +1,58 @@
 #include"stdafx.h"
-#include "PrimitiveHaveAnInterViewTask.h"
+#include "PrimitiveStirFryTask.h"
 
 using namespace htn;
 
 //==================================================
 // コンストラクタ
 //==================================================
-PrimitiveHaveAnInterViewTask::PrimitiveHaveAnInterViewTask()
-	: mCost(0)
+PrimitiveStirFryTask::PrimitiveStirFryTask()
 {
 }
-
 
 //==================================================
 // デストラクタ
 //==================================================
-PrimitiveHaveAnInterViewTask::~PrimitiveHaveAnInterViewTask()
+PrimitiveStirFryTask::~PrimitiveStirFryTask()
 {
 }
 
 //==================================================
 // 開始
 //==================================================
-void PrimitiveHaveAnInterViewTask::start()
+void PrimitiveStirFryTask::start()
 {
-	printf("InterviewStart\n");
+	printf("炒め始め\n");
 }
 
 //==================================================
 // 更新
 //==================================================
-void PrimitiveHaveAnInterViewTask::update()
+void PrimitiveStirFryTask::update()
 {
-	printf("-----------------\nInterView!!!%d\n-----------------\n", mCost);
+	printf("炒める\n");
 }
 
 //==================================================
 // 終了
 //==================================================
-void PrimitiveHaveAnInterViewTask::end()
+void PrimitiveStirFryTask::end()
 {
-	printf("InterviewEndt\n");
+	printf("炒め終わり\n");
 }
 
 //==================================================
 // コスト取得
 //==================================================
-float PrimitiveHaveAnInterViewTask::getCost()
+float PrimitiveStirFryTask::getCost()
 {
-	return mCost;
+	return 1;
 }
 
 //==================================================
-// プリミティブタスクか
+// プリミティブタスクか（falseは階層型タスク）
 //==================================================
-bool PrimitiveHaveAnInterViewTask::isPrimitive()
+bool PrimitiveStirFryTask::isPrimitive()
 {
 	return true;
 }
@@ -62,9 +60,9 @@ bool PrimitiveHaveAnInterViewTask::isPrimitive()
 //==================================================
 // 前条件を満たしているか
 //==================================================
-bool PrimitiveHaveAnInterViewTask::evaluatePreCondition(HtnState* state)
+bool PrimitiveStirFryTask::evaluatePreCondition(HtnState* state)
 {
-	if (!state->getB())
+	if (state->isCutMaterials() && !state->isStirFry())
 	{
 		return true;
 	}
@@ -72,17 +70,17 @@ bool PrimitiveHaveAnInterViewTask::evaluatePreCondition(HtnState* state)
 }
 
 //==================================================
-// ステータス変更を反映する
+// ステータスを変更する
 //==================================================
-void PrimitiveHaveAnInterViewTask::changeStatus(HtnState* state)
+void PrimitiveStirFryTask::changeStatus(HtnState* state)
 {
-	state->setB(true);
+	state->setStirFry(true);
 }
 
 //==================================================
 // タスクが終了したか
 //==================================================
-bool PrimitiveHaveAnInterViewTask::isFinish()
+bool PrimitiveStirFryTask::isFinish()
 {
 	return true;
 }

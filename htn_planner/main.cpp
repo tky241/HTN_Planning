@@ -17,6 +17,10 @@ int main()
 	htn::HtnPlanner* planner = new htn::HtnPlanner();
 	planner->setup();
 	htn::HtnState* state = new htn::HtnState();
+
+	// ðŒ‚ª•Ï‚í‚é‚Æs“®‚ª•Ï‚í‚è‚Ü‚·B
+	//state->setMoney(10000);
+
 	htn::Goal* goal = new htn::Goal();
 
 	planner->plan(state, goal);
