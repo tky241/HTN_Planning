@@ -30,7 +30,7 @@ void PrimitiveHaveAnInterViewTask::end()
 
 float PrimitiveHaveAnInterViewTask::getCost()
 {
-	return 1;
+	return mCost;
 }
 
 bool PrimitiveHaveAnInterViewTask::isPrimitive()

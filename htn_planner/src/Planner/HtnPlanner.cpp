@@ -56,7 +56,7 @@ void HtnPlanner::setup()
 	tas1->setCost(1);
 	registerDomain(tas1);
 	PrimitiveHaveAnInterViewTask* tas2 = new PrimitiveHaveAnInterViewTask();
-	tas2->setCost(2);
+	tas2->setCost(1);
 	registerDomain(tas2);
 	PrimitiveHaveAnInterViewTask* tas3 = new PrimitiveHaveAnInterViewTask();
 	tas3->setCost(3);
@@ -65,39 +65,8 @@ void HtnPlanner::setup()
 
 void HtnPlanner::plan(HtnState* state, Goal* goal)
 {
-	//// TODO : 現在はプランニングではない
-	//for (unsigned int i = 0; i < mDomainCount; i++)
-	//{
-	//	registerTask(mDomain[i]);
-	//}
-
-	//return;
-
 	HtnState planState;
 	state->copyTo(planState);
-
-	/*while (goal->evaluate(&planState) != 0)
-	{
-		bool isChange = false;
-
-		for (unsigned int i = 0; i < mDomainCount; i++)
-		{
-			if (mDomain[i]->evaluatePreCondition(&planState))
-			{
-				registerTask(mDomain[i]);
-				mDomain[i]->changeStatus(&planState);
-				isChange = true;
-			}
-		}
-
-		if (!isChange)
-		{
-			printf("プランニングに失敗しました。");
-			break;
-		}
-	}
-
-	return;*/
 
 	AstarStateNode* startnode = new AstarStateNode();
 	state->copyTo(*startnode);
@@ -128,6 +97,13 @@ void HtnPlanner::plan(HtnState* state, Goal* goal)
 				}
 				else
 				{
+					int cost = minCostNode->getCost() + mDomain[i]->getCost();
+					if (samenode->getCost() > cost)
+					{
+						samenode->setBeforStateNode(minCostNode);
+						samenode->setBeforTask(mDomain[i]);
+					}
+
 					delete node;
 				}
 			}
