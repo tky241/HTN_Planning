@@ -3,16 +3,20 @@
 
 using namespace htn;
 
+//==================================================
+// コンストラクタ
+//==================================================
 AstarStateNode::AstarStateNode()
 	: mIsClose(false)
-	, mIsOpen(false)
 	, mBeforeStateNode(nullptr)
 	, mCost(0)
 	, mHeuristic(0)
 {
 }
 
-
+//==================================================
+// デストラクタ
+//==================================================
 AstarStateNode::~AstarStateNode()
 {
 }

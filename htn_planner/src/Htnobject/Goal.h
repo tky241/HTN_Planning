@@ -9,9 +9,13 @@ namespace htn
 	class Goal
 	{
 	public:
+		// コンストラクタ
 		Goal();
+
+		// デストラクタ
 		virtual ~Goal();
 
+		// ゴール条件を満たしているか
 		int evaluate(HtnState* state);
 	private:
 

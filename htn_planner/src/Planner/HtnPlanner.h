@@ -12,7 +12,10 @@ namespace htn
 	class HtnPlanner
 	{
 	public:
+		// コンストラクタ
 		HtnPlanner();
+
+		// デストラクタ
 		virtual ~HtnPlanner();
 
 		void registerDomain(TaskBase* task);
@@ -38,7 +41,7 @@ namespace htn
 		bool nextTask();
 
 	private:
-		TaskBase* mDomain[1024];
+		TaskBase* mDomain[1024];			// タスクを
 		unsigned int mDomainCount;
 
 		TaskBase* mTasks[1024];

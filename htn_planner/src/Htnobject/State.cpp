@@ -3,45 +3,56 @@
 
 using namespace htn;
 
+//==================================================
+// コンストラクタ
+//==================================================
 HtnState::HtnState()
-	: a(false)
-	, b(false)
-	, c(false)
-	, d(false)
+	: mA(false)
+	, mB(false)
+	, mC(false)
+	, mD(false)
 {
 }
 
-
+//==================================================
+// デストラクタ
+//==================================================
 HtnState::~HtnState()
 {
 }
 
+//==================================================
+// 引数のステートに条件をコピー
+//==================================================
 void HtnState::copyTo(HtnState& state)
 {
-	state.setA(a);
-	state.setB(b);
-	state,setC(c);
-	state.setD(d);
+	state.setA(mA);
+	state.setB(mB);
+	state,setC(mC);
+	state.setD(mD);
 }
 
+//==================================================
+// 条件が同一かどうか
+//==================================================
 bool HtnState::isSame(HtnState* state)
 {
-	if (state->getA() != a)
+	if (state->getA() != mA)
 	{
 		return false;
 	}
 
-	if (state->getB() != b)
+	if (state->getB() != mB)
 	{
 		return false;
 	}
 
-	if (state->getC() != c)
+	if (state->getC() != mC)
 	{
 		return false;
 	}
 
-	if (state->getD() != d)
+	if (state->getD() != mD)
 	{
 		return false;
 	}

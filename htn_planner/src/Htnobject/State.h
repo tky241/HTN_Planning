@@ -8,58 +8,71 @@ namespace htn
 	class HtnState
 	{
 	public:
+		// コンストラクタ
 		HtnState();
+
+		// デストラクタ
 		virtual ~HtnState();
 
+		// 条件をコピーする
 		void copyTo(HtnState& state);
 
+		// 条件が同じかどうか
 		bool isSame(HtnState* state);
 
+		// A条件取得
 		inline bool getA() const
 		{
-			return a;
+			return mA;
 		}
 
+		// A条件設定
 		inline void setA(bool flg)
 		{
-			a = flg;
+			mA = flg;
 		}
 
+		// B条件取得
 		inline bool getB() const
 		{
-			return b;
+			return mB;
 		}
 
+		// B条件設定
 		inline void setB(bool flg)
 		{
-			b = flg;
+			mB = flg;
 		}
 
+		// C条件取得
 		inline bool getC() const
 		{
-			return c;
+			return mC;
 		}
 
+		// C条件設定
 		inline void setC(bool flg)
 		{
-			c = flg;
+			mC = flg;
 		}
 
+		// D条件取得
 		inline bool getD() const
 		{
-			return d;
+			return mD;
 		}
 
+		// D条件設定
 		inline void setD(bool flg)
 		{
-			d = flg;
+			mD = flg;
 		}
 
 	private:
-		bool a;
-		bool b;
-		bool c;
-		bool d;
+		bool mA;	// 仮の条件
+		bool mB;	// 仮の条件
+		bool mC;	// 仮の条件
+		bool mD;	// 仮の条件
 	};
 }
 

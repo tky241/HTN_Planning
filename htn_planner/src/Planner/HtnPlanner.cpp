@@ -8,6 +8,10 @@
 
 using namespace htn;
 
+
+//==================================================
+// コンストラクタ
+//==================================================
 HtnPlanner::HtnPlanner()
 	: mDomainCount(0)
 	, mTaskCount(0)
@@ -17,6 +21,9 @@ HtnPlanner::HtnPlanner()
 {
 }
 
+//==================================================
+// デストラクタ
+//==================================================
 HtnPlanner::~HtnPlanner()
 {
 	for (unsigned int i = 0; i < mDomainCount; i++)
@@ -30,39 +37,55 @@ HtnPlanner::~HtnPlanner()
 	}
 }
 
+//==================================================
+// ドメインにタスクを登録する
+//==================================================
 void HtnPlanner::registerDomain(TaskBase* task)
 {
 	mDomain[mDomainCount] = task;
 	mDomainCount++;
 }
 
+//==================================================
+// 実行するタスクを登録する
+//==================================================
 void HtnPlanner::registerTask(TaskBase* task)
 {
 	mTasks[mTaskCount] = task;
 	mTaskCount++;
 }
 
+//==================================================
+// 探索に使用するステートを登録する
+//==================================================
 void htn::HtnPlanner::registerState(AstarStateNode * node)
 {
 	mPlanStates[mPlanstateCount] = node;
 	mPlanstateCount++;
 }
 
+//==================================================
+// 初期設定
+//==================================================
 void HtnPlanner::setup()
 {
 	// TODO :TaskBaseを継承したクラスを自動で登録する
 
-	PrimitiveGoTask* tas1 = new PrimitiveGoTask();
-	tas1->setCost(1);
-	registerDomain(tas1);
-	PrimitiveHaveAnInterViewTask* tas2 = new PrimitiveHaveAnInterViewTask();
-	tas2->setCost(1);
-	registerDomain(tas2);
-	PrimitiveHaveAnInterViewTask* tas3 = new PrimitiveHaveAnInterViewTask();
-	tas3->setCost(3);
-	registerDomain(tas3);
+	PrimitiveGoTask* task1 = new PrimitiveGoTask();
+	registerDomain(task1);
+
+	// コストの違う2種類のタスクを登録して、コストの小さいほうが使用されていることを確かめる
+	PrimitiveHaveAnInterViewTask* task2 = new PrimitiveHaveAnInterViewTask();
+	task2->setCost(1);
+	registerDomain(task2);
+	PrimitiveHaveAnInterViewTask* task3 = new PrimitiveHaveAnInterViewTask();
+	task3->setCost(100000);
+	registerDomain(task3);
 }
 
+//==================================================
+// プランニングを行う
+//==================================================
 void HtnPlanner::plan(HtnState* state, Goal* goal)
 {
 	HtnState planState;
@@ -80,6 +103,8 @@ void HtnPlanner::plan(HtnState* state, Goal* goal)
 		{
 			if (mDomain[i]->evaluatePreCondition(minCostNode))
 			{
+
+				// todo newしないでいい方法を考える
 				AstarStateNode* node = new AstarStateNode();;
 				minCostNode->copyTo(*node);
 				mDomain[i]->changeStatus(node);
@@ -92,8 +117,6 @@ void HtnPlanner::plan(HtnState* state, Goal* goal)
 					node->setHeuristic(goal->evaluate(node));
 					node->setCost(minCostNode->getCost() + mDomain[i]->getCost());
 					registerState(node);
-
-					
 				}
 				else
 				{
@@ -108,8 +131,6 @@ void HtnPlanner::plan(HtnState* state, Goal* goal)
 				}
 			}
 		}
-
-
 
 		minCostNode = pickMinCostNode();
 		if (goal->evaluate(minCostNode) == 0)
@@ -131,6 +152,9 @@ void HtnPlanner::plan(HtnState* state, Goal* goal)
 	}
 }
 
+//==================================================
+// 検索に使用する状態がすべてCloseしているか
+//==================================================
 bool htn::HtnPlanner::isAllStateClose()
 {
 	for (unsigned int i = 0; i < mPlanstateCount; i++)
@@ -143,6 +167,9 @@ bool htn::HtnPlanner::isAllStateClose()
 	return true;
 }
 
+//==================================================
+// 同じ条件のノードがあれば返す
+//==================================================
 AstarStateNode* htn::HtnPlanner::haveSameNode(AstarStateNode* node)
 {
 	for (unsigned int i = 0; i < mPlanstateCount; i++)
@@ -155,6 +182,9 @@ AstarStateNode* htn::HtnPlanner::haveSameNode(AstarStateNode* node)
 	return nullptr;
 }
 
+//==================================================
+// コストが最小のノードを返す
+//==================================================
 AstarStateNode * htn::HtnPlanner::pickMinCostNode()
 {
 	AstarStateNode* minCostNode = nullptr;
@@ -178,6 +208,9 @@ AstarStateNode * htn::HtnPlanner::pickMinCostNode()
 	return minCostNode;
 }
 
+//==================================================
+// タスクの実行を行う（falseを返せば終了）
+//==================================================
 bool HtnPlanner::updateTask()
 {
 	if (mTaskCount == 0)
@@ -189,6 +222,12 @@ bool HtnPlanner::updateTask()
 	if (mIsCallTaskStart)
 	{
 		mTasks[mCurrentTaskNo]->start();
+	}
+
+	// 階層型タスク
+	if (!mTasks[mCurrentTaskNo]->isPrimitive())
+	{
+		// todo HTN
 	}
 
 	mTasks[mCurrentTaskNo]->update();
@@ -206,6 +245,9 @@ bool HtnPlanner::updateTask()
 	return true;
 }
 
+//==================================================
+// 次のタスクに切り替える
+//==================================================
 bool HtnPlanner::nextTask()
 {
 	mCurrentTaskNo++;

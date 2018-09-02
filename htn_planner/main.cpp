@@ -27,4 +27,3 @@ int main()
 	delete state;
 	delete goal;
 }
-
