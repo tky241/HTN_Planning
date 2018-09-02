@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{fd8cebb1-6ed3-4161-8612-a017fca54110}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\HtnObject">
+      <UniqueIdentifier>{a8ac59e5-0f53-427c-a2a6-87af38983f7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Planner">
+      <UniqueIdentifier>{d3b2053a-bfc1-408a-b5bb-87588a61d4c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\HtnObject\PrimitiveTask">
+      <UniqueIdentifier>{50822f98-9375-4ff0-b8d6-dde2312b5f48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\HtnObject\CompositeTask">
+      <UniqueIdentifier>{d11cd251-d631-48f1-91d8-dc1e80b03f7b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\State.h">
+      <Filter>Source\HtnObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\Goal.h">
+      <Filter>Source\HtnObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\TaskBase.h">
+      <Filter>Source\HtnObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Planner\HtnPlanner.h">
+      <Filter>Source\Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveGoTask.h">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Htnobject\PrimitiveTask\PrimitiveHaveAnInterviewTask.h">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Planner\AstarStateNode.h">
+      <Filter>Source\Planner</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\State.cpp">
+      <Filter>Source\HtnObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\Goal.cpp">
+      <Filter>Source\HtnObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\TaskBase.cpp">
+      <Filter>Source\HtnObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Planner\HtnPlanner.cpp">
+      <Filter>Source\Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveGoTask.cpp">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Htnobject\PrimitiveTask\PrimitiveHaveAnInterviewTask.cpp">
+      <Filter>Source\HtnObject\PrimitiveTask</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Planner\AstarStateNode.cpp">
+      <Filter>Source\Planner</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
