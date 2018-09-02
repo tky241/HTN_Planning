@@ -17,6 +17,7 @@ namespace htn
 
 		void registerDomain(TaskBase* task);
 		void registerTask(TaskBase* task);
+		void registerState(AstarStateNode* node);
 
 		inline void clearTask()
 		{
@@ -26,6 +27,12 @@ namespace htn
 		void setup();
 
 		void plan(HtnState* state, Goal* goal);
+
+		bool isAllStateClose();
+
+		AstarStateNode* haveSameNode(AstarStateNode* node);
+
+		AstarStateNode* pickMinCostNode();
 
 		bool updateTask();
 		bool nextTask();

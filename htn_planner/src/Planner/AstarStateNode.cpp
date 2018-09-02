@@ -7,6 +7,8 @@ AstarStateNode::AstarStateNode()
 	: mIsClose(false)
 	, mIsOpen(false)
 	, mBeforeStateNode(nullptr)
+	, mCost(0)
+	, mHeuristic(0)
 {
 }
 
